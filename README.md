@@ -1,7 +1,9 @@
 # emojifyi
 
 [![npm](https://img.shields.io/npm/v/emojifyi)](https://www.npmjs.com/package/emojifyi)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](https://www.npmjs.com/package/emojifyi)
 
 Pure TypeScript emoji toolkit for developers. Encode any emoji into 8 representations, look up metadata for 3,781 emojis, search and browse by category -- all with zero dependencies. Bundled data from [Unicode Emoji 16.0](https://emojifyi.com/versions/).
 
@@ -164,9 +166,17 @@ encodeUtf8("\u{1F1FA}\u{1F1F8}");  // "0xF0 0x9F 0x87 0xBA 0xF0 0x9F 0x87 0xB8"
 - **Tree-shakeable**: ESM-only, import only what you need
 - **Type-safe**: Full TypeScript declarations included
 
+## Also Available for Python
+
+```bash
+pip install emojifyi
+```
+
+See the [Python package on PyPI](https://pypi.org/project/emojifyi/).
+
 ## FYIPedia Developer Tools
 
-Part of the [FYIPedia](https://fyipedia.com/) open-source developer tools ecosystem:
+Part of the [FYIPedia](https://github.com/fyipedia) open-source developer tools ecosystem:
 
 | Package | Description |
 |---------|-------------|
