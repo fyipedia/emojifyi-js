@@ -1,0 +1,48 @@
+{
+  "name": "emojifyi",
+  "version": "0.1.0",
+  "description": "Pure TypeScript emoji toolkit -- encoding, lookup, search for 3,781 emojis from Unicode Emoji 16.0. Zero dependencies.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "emoji",
+    "unicode",
+    "encoding",
+    "utf8",
+    "utf16",
+    "html",
+    "css",
+    "search",
+    "metadata",
+    "zwj",
+    "codepoint",
+    "surrogate-pairs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fyipedia/emojifyi-js"
+  },
+  "homepage": "https://emojifyi.com",
+  "license": "MIT",
+  "author": "FYIPedia",
+  "devDependencies": {
+    "tsup": "^8.0",
+    "typescript": "^5.7",
+    "vitest": "^3.0"
+  }
+}
