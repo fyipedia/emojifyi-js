@@ -17,7 +17,10 @@ Pure TypeScript emoji toolkit for developers. Encode any emoji into 8 representa
 
 - [Install](#install)
 - [Quick Start](#quick-start)
-- [Advanced Usage](#advanced-usage)
+- [What You Can Do](#what-you-can-do)
+  - [Emoji Encoding](#emoji-encoding)
+  - [Emoji Lookup & Search](#emoji-lookup--search)
+  - [Browse by Category](#browse-by-category)
 - [Encoding Functions](#encoding-functions)
 - [API Reference](#api-reference)
 - [Data Types](#data-types)
@@ -61,39 +64,102 @@ for (const emoji of search("fire").slice(0, 5)) {
 }
 ```
 
-## Advanced Usage
+## What You Can Do
+
+### Emoji Encoding
+
+Every emoji is represented internally as one or more Unicode code points. The `encode()` function converts any emoji character into **8 encoding formats** for different programming contexts:
+
+| # | Format | Example (U+1F600) | Use Case |
+|---|--------|-------------------|----------|
+| 1 | **Codepoint** | `U+1F600` | Unicode documentation, character charts |
+| 2 | **UTF-8 Bytes** | `0xF0 0x9F 0x98 0x80` | Network protocols, file I/O, database storage |
+| 3 | **UTF-16 Surrogates** | `0xD83D 0xDE00` | Java, C#, Windows APIs, JavaScript internals |
+| 4 | **HTML Entity** | `&#x1F600;` | Web pages, email HTML, CMS content |
+| 5 | **CSS Content** | `\1F600` | CSS `content` property, `::before`/`::after` pseudo-elements |
+| 6 | **Python Literal** | `\U0001F600` | Python source code, string escaping |
+| 7 | **JavaScript Literal** | `\u{1F600}` | ES6+ source code, JSON embedding |
+| 8 | **Java Literal** | `\uD83D\uDE00` | Java source code (requires surrogate pairs for U+10000+) |
 
 ```typescript
-import {
-  getEmojiByChar,
-  byCategory,
-  byVersion,
-  categories,
-  subcategories,
-  allEmojis,
-  emojiCount,
-} from "emojifyi";
+import { encode } from "emojifyi";
+
+// Encode the grinning face emoji into all 8 representations
+const result = encode("\u{1F600}");
+console.log(result.codepoint);          // "U+1F600"
+console.log(result.utf8Bytes);          // "0xF0 0x9F 0x98 0x80"
+console.log(result.utf16Surrogates);    // "0xD83D 0xDE00"
+console.log(result.htmlEntity);         // "&#x1F600;"
+console.log(result.cssContent);         // "\1F600"
+console.log(result.pythonLiteral);      // "\U0001F600"
+console.log(result.javascriptLiteral);  // "\u{1F600}"
+console.log(result.javaLiteral);        // "\uD83D\uDE00"
+```
+
+ZWJ (Zero Width Joiner) sequences are fully supported -- compound emojis like family groups and profession emojis encode correctly across all formats.
+
+Learn more: [Unicode Lookup Tool](https://emojifyi.com/tools/unicode-lookup/) · [Emoji Encoding Guide](https://emojifyi.com/glossary/) · [Unicode Emoji 16.0 Spec](https://unicode.org/emoji/charts-16.0/emoji-released.html)
+
+### Emoji Lookup & Search
+
+Look up metadata for any of the **3,781 emojis** in the bundled Unicode Emoji 16.0 dataset. Each emoji includes 12 metadata fields: character, slug, CLDR name, codepoint, category, subcategory, emoji version, Unicode version, year added, type (component, fully-qualified, etc.), ZWJ status, and skin tone support.
+
+```typescript
+import { getEmoji, getEmojiByChar, search } from "emojifyi";
+
+// Look up by slug -- SEO-friendly identifiers
+const heart = getEmoji("red-heart");
+console.log(heart?.character);     // Red heart emoji
+console.log(heart?.category);      // "smileys-and-emotion"
+console.log(heart?.emojiVersion);  // "1.0"
+console.log(heart?.isZwj);         // false
+console.log(heart?.hasSkinTones);  // false
 
 // Look up by character
-const info = getEmojiByChar("\u{1F525}");
-console.log(info?.slug);  // fire
+const fire = getEmojiByChar("\u{1F525}");
+console.log(fire?.slug);           // "fire"
+console.log(fire?.cldrName);       // "fire"
+
+// Search by name -- case-insensitive substring matching
+const results = search("heart", 5);
+for (const emoji of results) {
+  console.log(`${emoji.character} ${emoji.cldrName} (${emoji.codepoint})`);
+}
+```
+
+Learn more: [Emoji Search](https://emojifyi.com/search/) · [REST API Docs](https://emojifyi.com/developers/) · [OpenAPI Spec](https://emojifyi.com/api/openapi.json)
+
+### Browse by Category
+
+The Unicode Consortium organizes emojis into **10 top-level categories** and **100 subcategories**. Browse, filter, and explore the full emoji dataset programmatically:
+
+```typescript
+import { byCategory, byVersion, categories, subcategories, allEmojis, emojiCount } from "emojifyi";
 
 // Browse by category
 const animals = byCategory("animals-and-nature");
 console.log(animals.length);  // 151 emojis
 
-// New emojis in a specific version
+// New emojis added in Unicode Emoji 16.0
 const latest = byVersion("16.0");
 console.log(latest.length);  // Latest additions
 
-// Category metadata
+// List all 10 categories with icons
 for (const cat of categories()) {
   console.log(`${cat.icon} ${cat.name} (${cat.slug})`);
 }
 
-// Total count
+// Subcategories within a category
+const faceSubs = subcategories("smileys-and-emotion");
+for (const sub of faceSubs) {
+  console.log(`  ${sub.name} (${sub.slug})`);
+}
+
+// Total emoji count
 console.log(emojiCount());  // 3781
 ```
+
+Learn more: [Browse Categories](https://emojifyi.com/category/) · [Emoji Collections](https://emojifyi.com/collection/) · [Emoji Versions](https://emojifyi.com/versions/)
 
 ## Encoding Functions
 
