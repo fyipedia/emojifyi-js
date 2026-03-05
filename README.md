@@ -13,6 +13,20 @@ Pure TypeScript emoji toolkit for developers. Encode any emoji into 8 representa
   <img src="demo.gif" alt="emojifyi demo — emoji lookup, encoding, and search" width="800">
 </p>
 
+## Table of Contents
+
+- [Install](#install)
+- [Quick Start](#quick-start)
+- [Advanced Usage](#advanced-usage)
+- [Encoding Functions](#encoding-functions)
+- [API Reference](#api-reference)
+- [Data Types](#data-types)
+- [Features](#features)
+- [Learn More About Emojis](#learn-more-about-emojis)
+- [Also Available for Python](#also-available-for-python)
+- [FYIPedia Developer Tools](#fyipedia-developer-tools)
+- [License](#license)
+
 ## Install
 
 ```bash
@@ -170,6 +184,14 @@ encodeUtf8("\u{1F1FA}\u{1F1F8}");  // "0xF0 0x9F 0x87 0xBA 0xF0 0x9F 0x87 0xB8"
 - **Tree-shakeable**: ESM-only, import only what you need
 - **Type-safe**: Full TypeScript declarations included
 
+## Learn More About Emojis
+
+- **Browse**: [Emoji Browser](https://emojifyi.com/) · [Search](https://emojifyi.com/search/) · [Categories](https://emojifyi.com/category/)
+- **Tools**: [Unicode Lookup](https://emojifyi.com/tools/unicode-lookup/)
+- **Collections**: [Emoji Collections](https://emojifyi.com/collection/) · [Versions](https://emojifyi.com/versions/)
+- **API**: [REST API Docs](https://emojifyi.com/developers/) · [OpenAPI Spec](https://emojifyi.com/api/openapi.json)
+- **Python**: [PyPI Package](https://pypi.org/project/emojifyi/)
+
 ## Also Available for Python
 
 ```bash
@@ -180,32 +202,23 @@ See the [Python package on PyPI](https://pypi.org/project/emojifyi/).
 
 ## FYIPedia Developer Tools
 
-Part of the [FYIPedia](https://github.com/fyipedia) open-source developer tools ecosystem:
+Part of the [FYIPedia](https://fyipedia.com) open-source developer tools ecosystem.
 
-| Package | Description |
-|---------|-------------|
-| **emojifyi** | [Emoji encoding](https://emojifyi.com/developers/) & metadata for 3,781 Unicode emojis |
-| [colorfyi](https://colorfyi.com/) | [Hex to RGB converter](https://colorfyi.com/tools/converter/), [WCAG contrast checker](https://colorfyi.com/tools/contrast-checker/), [color harmonies](https://colorfyi.com/tools/palette-generator/) |
-| [symbolfyi](https://symbolfyi.com/) | [Symbol encoder](https://symbolfyi.com/developers/) -- 11 encoding formats for any character |
-| [unicodefyi](https://unicodefyi.com/) | [Unicode character lookup](https://unicodefyi.com/developers/) -- 17 encodings + character search |
-| [fontfyi](https://fontfyi.com/) | [Google Fonts explorer](https://fontfyi.com/developers/) -- metadata, CSS helpers, font pairings |
-| [distancefyi](https://www.npmjs.com/package/distancefyi) | Haversine distance, bearing, travel times -- [distancefyi.com](https://distancefyi.com/) |
-| [timefyi](https://www.npmjs.com/package/timefyi) | Timezone operations, time differences -- [timefyi.com](https://timefyi.com/) |
-| [namefyi](https://www.npmjs.com/package/namefyi) | Korean romanization, Five Elements -- [namefyi.com](https://namefyi.com/) |
-| [unitfyi](https://www.npmjs.com/package/unitfyi) | Unit conversion, 200 units, 20 categories -- [unitfyi.com](https://unitfyi.com/) |
-| [holidayfyi](https://www.npmjs.com/package/holidayfyi) | Holiday dates, Easter calculation -- [holidayfyi.com](https://holidayfyi.com/) |
-
-## Links
-
-- [Emoji Browser](https://emojifyi.com/) -- Browse all 3,781 emojis online
-- [Emoji Search](https://emojifyi.com/search/) -- Search emojis by name or keyword
-- [Emoji Categories](https://emojifyi.com/category/) -- Browse emojis by category
-- [Emoji Encoding Tools](https://emojifyi.com/tools/unicode-lookup/) -- Codepoint and encoding breakdown
-- [Emoji Collections](https://emojifyi.com/collection/) -- Curated emoji collections
-- [Emoji Versions](https://emojifyi.com/versions/) -- Unicode Emoji version history
-- [API Documentation](https://emojifyi.com/developers/) -- REST API with free access
-- [Python Package](https://pypi.org/project/emojifyi/) -- Python version with CLI and MCP server
-- [Source Code](https://github.com/fyipedia/emojifyi-js) -- MIT licensed
+| Package | PyPI | npm | Description |
+|---------|------|-----|-------------|
+| colorfyi | [PyPI](https://pypi.org/project/colorfyi/) | [npm](https://www.npmjs.com/package/@fyipedia/colorfyi) | Color conversion, WCAG contrast, harmonies -- [colorfyi.com](https://colorfyi.com/) |
+| **emojifyi** | [PyPI](https://pypi.org/project/emojifyi/) | [npm](https://www.npmjs.com/package/emojifyi) | Emoji encoding & metadata for 3,953 emojis -- [emojifyi.com](https://emojifyi.com/) |
+| symbolfyi | [PyPI](https://pypi.org/project/symbolfyi/) | [npm](https://www.npmjs.com/package/symbolfyi) | Symbol encoding in 11 formats -- [symbolfyi.com](https://symbolfyi.com/) |
+| unicodefyi | [PyPI](https://pypi.org/project/unicodefyi/) | [npm](https://www.npmjs.com/package/unicodefyi) | Unicode lookup with 17 encodings -- [unicodefyi.com](https://unicodefyi.com/) |
+| fontfyi | [PyPI](https://pypi.org/project/fontfyi/) | [npm](https://www.npmjs.com/package/fontfyi) | Google Fonts metadata & CSS -- [fontfyi.com](https://fontfyi.com/) |
+| distancefyi | [PyPI](https://pypi.org/project/distancefyi/) | [npm](https://www.npmjs.com/package/distancefyi) | Haversine distance & travel times -- [distancefyi.com](https://distancefyi.com/) |
+| timefyi | [PyPI](https://pypi.org/project/timefyi/) | [npm](https://www.npmjs.com/package/timefyi) | Timezone ops & business hours -- [timefyi.com](https://timefyi.com/) |
+| namefyi | [PyPI](https://pypi.org/project/namefyi/) | [npm](https://www.npmjs.com/package/namefyi) | Korean romanization & Five Elements -- [namefyi.com](https://namefyi.com/) |
+| unitfyi | [PyPI](https://pypi.org/project/unitfyi/) | [npm](https://www.npmjs.com/package/unitfyi) | Unit conversion, 220 units -- [unitfyi.com](https://unitfyi.com/) |
+| holidayfyi | [PyPI](https://pypi.org/project/holidayfyi/) | [npm](https://www.npmjs.com/package/holidayfyi) | Holiday dates & Easter calculation -- [holidayfyi.com](https://holidayfyi.com/) |
+| cocktailfyi | [PyPI](https://pypi.org/project/cocktailfyi/) | -- | Cocktail ABV, calories, flavor -- [cocktailfyi.com](https://cocktailfyi.com/) |
+| fyipedia | [PyPI](https://pypi.org/project/fyipedia/) | -- | Unified CLI: `fyi color info FF6B35` -- [fyipedia.com](https://fyipedia.com/) |
+| fyipedia-mcp | [PyPI](https://pypi.org/project/fyipedia-mcp/) | -- | Unified MCP hub for AI assistants -- [fyipedia.com](https://fyipedia.com/) |
 
 ## License
 
