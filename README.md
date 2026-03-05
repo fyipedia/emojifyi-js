@@ -9,6 +9,10 @@ Pure TypeScript emoji toolkit for developers. Encode any emoji into 8 representa
 
 > Browse all emojis at [emojifyi.com](https://emojifyi.com/) -- [search emojis](https://emojifyi.com/search/), [browse categories](https://emojifyi.com/category/), [emoji encoding tools](https://emojifyi.com/tools/unicode-lookup/), [emoji collections](https://emojifyi.com/collection/)
 
+<p align="center">
+  <img src="demo.gif" alt="emojifyi demo — emoji lookup, encoding, and search" width="800">
+</p>
+
 ## Install
 
 ```bash
